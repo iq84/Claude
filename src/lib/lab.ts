@@ -1,3 +1,4 @@
+import { achievableRange } from './recommend';
 import { TRAITS, type ModelResult, type Trait } from './schema';
 
 export type LabView = 'baseline' | 'steerability';
@@ -35,14 +36,12 @@ export function radarRows(m: ModelResult, view: LabView) {
   return TRAITS.map((t) => ({ trait: t, label: TRAIT_SHORT[t], value: viewValue(m, t, view) }));
 }
 
-/** Achievable range on a trait: from the steer-low to the steer-high score, whichever is lower first. */
+/** Achievable range on a trait (shared with the recommender) plus the baseline. */
 export function steerRange(
   m: ModelResult,
   t: Trait,
 ): { low: number; high: number; baseline: number } {
-  const a = m.steerLow[t];
-  const b = m.steerHigh[t];
-  return { low: Math.min(a, b), high: Math.max(a, b), baseline: m.baseline[t] };
+  return { ...achievableRange(m, t), baseline: m.baseline[t] };
 }
 
 export function formatLatency(ms: number): string {

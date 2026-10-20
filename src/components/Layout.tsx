@@ -15,11 +15,15 @@ export default function Layout() {
             sooalim<span className="text-accent">.com</span>
           </NavLink>
           <nav aria-label="Main" className="flex items-center gap-1 sm:gap-2">
-            <NavLink to="/" end className={navClass}>
+            {/* The logo links home, so the Home link only shows where there's room. */}
+            <NavLink to="/" end className={(a) => `${navClass(a)} hidden sm:inline`}>
               Home
             </NavLink>
             <NavLink to="/lab" className={navClass}>
               Lab
+            </NavLink>
+            <NavLink to="/builder" className={navClass}>
+              Builder
             </NavLink>
             <NavLink to="/about" className={navClass}>
               About

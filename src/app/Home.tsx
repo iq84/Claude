@@ -8,7 +8,7 @@ const features = [
   },
   {
     title: 'Agent Builder',
-    href: undefined,
+    href: '/builder',
     body: 'A guided wizard that turns a role into a ready-to-use hiring packet: persona card, calibrated system prompt and agent spec, with a base-model recommendation drawn from measured data.',
   },
 ];
