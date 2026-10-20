@@ -11,6 +11,8 @@
   --color-border: #e5e7eb;
   --color-accent: #4338ca;
   --color-accent-fg: #ffffff;
+  /* Chart series colour, validated against the light and dark surfaces (dataviz validator). */
+  --color-series-1: #2a78d6;
 }
 
 @layer base {
@@ -22,6 +24,7 @@
     --color-border: #262c3d;
     --color-accent: #a5b4fc;
     --color-accent-fg: #0b0d14;
+    --color-series-1: #3987e5;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme='light']) {
@@ -32,6 +35,7 @@
       --color-border: #262c3d;
       --color-accent: #a5b4fc;
       --color-accent-fg: #0b0d14;
+      --color-series-1: #3987e5;
     }
   }
   body {
@@ -44,4 +48,14 @@
       'Segoe UI',
       sans-serif;
   }
+}
+
+/* Recharts draws with SVG attributes; CSS here keeps axes and grid on the theme tokens. */
+.chart .recharts-polar-grid line,
+.chart .recharts-polar-grid polygon {
+  stroke: var(--color-border);
+}
+.chart .recharts-polar-angle-axis-tick text {
+  fill: var(--color-muted);
+  font-size: 12px;
 }

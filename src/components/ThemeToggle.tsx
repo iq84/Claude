@@ -13,7 +13,7 @@ export default function ThemeToggle() {
         setTheme(next);
       }}
       aria-label={`Switch to ${next} mode`}
-      className="rounded-md border border-border px-3 py-1.5 text-sm text-muted hover:text-fg focus-visible:outline-2 focus-visible:outline-accent"
+      className="rounded-md border border-border px-2.5 py-1.5 text-sm text-muted hover:text-fg focus-visible:outline-2 focus-visible:outline-accent"
     >
       {theme === 'dark' ? 'Light' : 'Dark'}
     </button>

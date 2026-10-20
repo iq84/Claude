@@ -2,7 +2,7 @@ import { NavLink, Outlet } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 
 const navClass = ({ isActive }: { isActive: boolean }) =>
-  `rounded-md px-2 py-1 text-sm focus-visible:outline-2 focus-visible:outline-accent ${
+  `rounded-md px-1.5 py-1 text-sm sm:px-2 focus-visible:outline-2 focus-visible:outline-accent ${
     isActive ? 'font-semibold text-fg' : 'text-muted hover:text-fg'
   }`;
 
@@ -10,13 +10,16 @@ export default function Layout() {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="border-b border-border">
-        <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3">
+        <div className="mx-auto flex max-w-5xl items-center justify-between gap-2 px-4 py-3">
           <NavLink to="/" className="font-bold tracking-tight">
             sooalim<span className="text-accent">.com</span>
           </NavLink>
-          <nav aria-label="Main" className="flex items-center gap-2">
+          <nav aria-label="Main" className="flex items-center gap-1 sm:gap-2">
             <NavLink to="/" end className={navClass}>
               Home
+            </NavLink>
+            <NavLink to="/lab" className={navClass}>
+              Lab
             </NavLink>
             <NavLink to="/about" className={navClass}>
               About

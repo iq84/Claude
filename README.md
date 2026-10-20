@@ -18,6 +18,6 @@ Deployed on Vercel; see [`docs/DEPLOY.md`](./docs/DEPLOY.md) for setup and the G
 
 - [x] M0 – Scaffold (Vite + React + TS + Tailwind + Router + ESLint/Prettier + Vitest; Home and About)
 - [x] M1 – Eval runner (built and tested with the mock provider; first real run pending API keys and model IDs, see [`evals/README.md`](./evals/README.md))
-- [ ] M2 – Personality Index UI
+- [x] M2 – Personality Index UI (`/lab`, `/lab/:modelId`; showing labelled sample data until the first real run)
 - [ ] M3 – Agent Builder
 - [ ] M4 – Launch on sooalim.com

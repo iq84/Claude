@@ -1,10 +1,14 @@
+import { Link } from 'react-router-dom';
+
 const features = [
   {
     title: 'Model Personality Lab',
+    href: '/lab',
     body: 'A repeatable evaluation of how base LLMs behave — pushback, sycophancy resistance, creativity, clarification, instruction adherence and scrutiny — and how far prompting can steer each one. Published as a dated Personality Index.',
   },
   {
     title: 'Agent Builder',
+    href: undefined,
     body: 'A guided wizard that turns a role into a ready-to-use hiring packet: persona card, calibrated system prompt and agent spec, with a base-model recommendation drawn from measured data.',
   },
 ];
@@ -54,10 +58,23 @@ export default function Home() {
           {features.map((f) => (
             <article key={f.title} className="rounded-xl border border-border bg-surface p-6">
               <div className="flex items-center justify-between gap-2">
-                <h3 className="text-lg font-semibold">{f.title}</h3>
-                <span className="shrink-0 rounded-full border border-border px-2 py-0.5 text-xs whitespace-nowrap text-muted">
-                  Coming soon
-                </span>
+                <h3 className="text-lg font-semibold">
+                  {f.href ? (
+                    <Link
+                      to={f.href}
+                      className="hover:underline focus-visible:outline-2 focus-visible:outline-accent"
+                    >
+                      {f.title} →
+                    </Link>
+                  ) : (
+                    f.title
+                  )}
+                </h3>
+                {!f.href && (
+                  <span className="shrink-0 rounded-full border border-border px-2 py-0.5 text-xs whitespace-nowrap text-muted">
+                    Coming soon
+                  </span>
+                )}
               </div>
               <p className="mt-2 text-muted">{f.body}</p>
             </article>
