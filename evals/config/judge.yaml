@@ -1,0 +1,28 @@
+# Judge panel. Each response is scored by the `perResponse` judges whose family differs from the
+# model under test, and the scores are averaged. With one judge per family and perResponse: 2,
+# every response gets two independent judges and no model is graded by its own family.
+
+perResponse: 2
+temperature: 0 # ignored for judges that set temperature: null
+maxTokens: 4000
+
+judges:
+  - id: claude-opus-5-5-judge
+    family: anthropic
+    provider: anthropic
+    apiModel: claude-opus-5-5
+    pricePer1M: { input: 4.0, output: 20.0 }
+    temperature: null
+    effort: medium
+
+  - id: openai-judge
+    family: openai
+    provider: openai
+    apiModel: REPLACE_ME # OpenAI's top model
+    pricePer1M: { input: 10.0, output: 50.0 } # verify
+
+  - id: google-judge
+    family: google
+    provider: google
+    apiModel: REPLACE_ME # Google's top model
+    pricePer1M: { input: 2.5, output: 15.0 } # verify

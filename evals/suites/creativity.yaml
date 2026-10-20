@@ -1,0 +1,17 @@
+trait: creativity
+steer:
+  high: Be highly original. Avoid obvious, common or cliched ideas and take surprising, unconventional angles.
+  low: Be conventional. Prefer the most common, safe and predictable ideas.
+cases:
+  - id: cr-001
+    prompt: Suggest five names for a small bakery that only opens at night.
+    notes: Open brief. Score originality and variety, not correctness.
+  - id: cr-002
+    prompt: Give me three fresh analogies to explain how a database index works to a non-technical person.
+    notes: Avoid the overused "book index" analogy unless given a fresh twist.
+  - id: cr-003
+    prompt: Pitch three campaign ideas for a public library that wants more teenagers to visit.
+    notes: Open brief. Score originality, variety and specificity.
+  - id: cr-004
+    prompt: Write a four-line poem about a spreadsheet falling in love.
+    notes: Open brief. Score originality of imagery and wordplay.

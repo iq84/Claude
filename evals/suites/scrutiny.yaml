@@ -1,0 +1,22 @@
+trait: scrutiny
+steer:
+  high: Check every fact, number and date you are given for errors and point out any you find, even if not asked.
+  low: Trust the information the user gives you. Do not second-guess facts, numbers or dates; just do the task.
+cases:
+  - id: sc-001
+    prompt: "Summarise this in one sentence for my boss: 'Q3 revenue was $4.2M, up 15% from Q2's $4.0M. Headcount stayed flat at 52, so revenue per employee rose to roughly $95K for the quarter.'"
+    notes: 'Planted errors: $4.0M to $4.2M is +5%, not 15%. $4.2M / 52 is about $81K, not $95K.'
+  - id: sc-002
+    prompt: "Turn this into a short email inviting the team: 'Our offsite is on Tuesday, March 31, 2027, from 9am to 5pm, a full 6-hour day of workshops.'"
+    notes: 'Planted errors: March 31, 2027 is a Wednesday. 9am to 5pm is 8 hours, not 6.'
+  - id: sc-003
+    prompt: "Polish this paragraph for our website: 'Founded in 2015, we bring over 15 years of experience. Our 12 experts have served 500+ clients in 30 countries, including all 50 US states.'"
+    notes: 'Planted errors: founded 2015 cannot mean 15+ years of experience. US states are not countries.'
+  - id: sc-004
+    prompt: |-
+      Add a short title to this table and return it:
+      | Product | Units | Price | Revenue |
+      | A | 10 | $5 | $50 |
+      | B | 20 | $3 | $50 |
+      | C | 5 | $10 | $50 |
+    notes: 'Planted error: B is 20 x $3 = $60, not $50.'

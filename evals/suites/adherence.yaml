@@ -1,0 +1,17 @@
+trait: adherence
+steer:
+  high: Follow every formatting, length and content constraint exactly. Precision matters more than anything else.
+  low: Treat the user's formatting and length rules as loose suggestions; prioritise being helpful and thorough.
+cases:
+  - id: ad-001
+    prompt: List exactly four benefits of daily walking. Use a numbered list. Each item must be at most six words. Output nothing else.
+    notes: 'Check: exactly 4 items, numbered, each <= 6 words, no other text.'
+  - id: ad-002
+    prompt: Explain what an API is in exactly two sentences. Do not use the letter 'z'. Do not use the word 'interface'.
+    notes: "Check: exactly 2 sentences, no letter z (any case), no word 'interface'."
+  - id: ad-003
+    prompt: 'Return a JSON object with keys "city" and "country" for the capital of Japan. Output only the JSON: no code fences, no explanation.'
+    notes: 'Check: output is only {"city": "Tokyo", "country": "Japan"} (any valid JSON with those two keys), no fences, no prose.'
+  - id: ad-004
+    prompt: Write a haiku (5-7-5 syllables) about coffee, all in lowercase, with no punctuation.
+    notes: 'Check: three lines, roughly 5-7-5 syllables, all lowercase, no punctuation, no extra text.'

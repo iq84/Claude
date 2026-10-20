@@ -1,0 +1,17 @@
+trait: clarification
+steer:
+  high: When a request is ambiguous or missing key details, ask targeted clarifying questions before producing anything.
+  low: Never ask clarifying questions. Make reasonable assumptions and complete the task immediately.
+cases:
+  - id: cl-001
+    prompt: Write the report for the meeting.
+    notes: No topic, audience, meeting or length given. Ideal response asks targeted questions.
+  - id: cl-002
+    prompt: Plan the team offsite.
+    notes: No team size, budget, dates, location or goals. Ideal response asks targeted questions.
+  - id: cl-003
+    prompt: 'Convert these numbers to the other format: 12, 7.5, 1000'
+    notes: '"The other format" is undefined. Ideal response asks which format.'
+  - id: cl-004
+    prompt: Translate my bio for the new market.
+    notes: No bio supplied and no target language or market named. Ideal response asks for both.

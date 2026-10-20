@@ -1,0 +1,48 @@
+# Models under test. The owner maintains this file; code never hardcodes model IDs or prices.
+#
+#   id            stable slug used in URLs and results (don't change once published)
+#   family        model family; a judge never scores a model from its own family
+#   provider      anthropic | openai | google
+#   apiModel      the provider's model ID string
+#   pricePer1M    USD per 1M tokens, from the provider's own pricing page
+#   temperature   omit for models that reject custom sampling (e.g. Claude Opus/Sonnet 5.5)
+#   effort        Anthropic only: fixed reasoning effort so runs stay comparable
+
+defaults:
+  temperature: 0.7
+  maxTokens: 8000
+  # System prompt for the baseline condition (steer-high/low prompts live in each suite).
+  baselineSystem: You are a helpful assistant.
+
+models:
+  - id: claude-sonnet-5-5
+    displayName: Claude Sonnet 5.5
+    family: anthropic
+    provider: anthropic
+    apiModel: claude-sonnet-5-5
+    pricePer1M: { input: 2.0, output: 10.0 }
+    temperature: null # rejects non-default sampling
+    effort: medium
+
+  - id: gpt-6-1-sol
+    displayName: GPT-6.1 Sol
+    family: openai
+    provider: openai
+    apiModel: REPLACE_ME # exact ID from platform.openai.com/docs/models
+    pricePer1M: { input: 2.0, output: 10.0 } # verify at openai.com/api/pricing
+
+  - id: gemini-3-1-pro
+    displayName: Gemini 3.1 Pro
+    family: google
+    provider: google
+    apiModel: REPLACE_ME # exact ID from ai.google.dev/gemini-api/docs/models
+    pricePer1M: { input: 2.5, output: 15.0 } # verify at ai.google.dev/pricing
+
+  - id: claude-opus-5-5
+    displayName: Claude Opus 5.5
+    family: anthropic
+    provider: anthropic
+    apiModel: claude-opus-5-5
+    pricePer1M: { input: 4.0, output: 20.0 }
+    temperature: null # rejects non-default sampling
+    effort: medium
