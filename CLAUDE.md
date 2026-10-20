@@ -34,4 +34,4 @@ Run `npm run lint && npm test && npm run build` before every commit.
 ## Routing
 
 Client-side routing via React Router (`BrowserRouter`). The static host must serve `index.html` for
-unknown paths (SPA fallback); configure this once the host is chosen.
+unknown paths (SPA fallback); `vercel.json` does this on Vercel. Deploy steps: `docs/DEPLOY.md`.

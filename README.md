@@ -12,6 +12,8 @@ npm test
 npm run build    # static output in dist/
 ```
 
+Deployed on Vercel; see [`docs/DEPLOY.md`](./docs/DEPLOY.md) for setup and the GoDaddy DNS steps.
+
 ## Status
 
 - [x] M0 – Scaffold (Vite + React + TS + Tailwind + Router + ESLint/Prettier + Vitest; Home and About)
