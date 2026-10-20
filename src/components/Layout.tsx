@@ -1,4 +1,6 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { useEffect } from 'react';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { pageTitle } from '../lib/titles';
 import ThemeToggle from './ThemeToggle';
 
 const navClass = ({ isActive }: { isActive: boolean }) =>
@@ -7,6 +9,11 @@ const navClass = ({ isActive }: { isActive: boolean }) =>
   }`;
 
 export default function Layout() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    // Model pages set their own, more specific title.
+    if (!pathname.startsWith('/lab/')) document.title = pageTitle(pathname);
+  }, [pathname]);
   return (
     <div className="flex min-h-screen flex-col">
       <header className="border-b border-border">

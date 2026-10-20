@@ -12,7 +12,8 @@ npm test
 npm run build    # static output in dist/
 ```
 
-Deployed on Vercel; see [`docs/DEPLOY.md`](./docs/DEPLOY.md) for setup and the GoDaddy DNS steps.
+Hosted free on GitHub Pages at [sooalim.com](https://sooalim.com); every push to `main` deploys via
+`.github/workflows/deploy.yml`. See [`docs/DEPLOY.md`](./docs/DEPLOY.md) for setup and the GoDaddy DNS steps.
 
 ## Status
 
@@ -22,4 +23,5 @@ Deployed on Vercel; see [`docs/DEPLOY.md`](./docs/DEPLOY.md) for setup and the G
 - [x] M3 – Agent Builder (`/builder`: six-step wizard, recommendations from Lab data, `.md` + `.json` hiring packet)
 - [x] Playground (`/playground`): load an agent and chat with it or give it work, on any base model,
       with your own API key (calls go straight from the browser to the provider)
-- [ ] M4 – Launch on sooalim.com
+- [x] M4 – Launch prep: GitHub Pages workflow, SPA fallback, page titles, SEO/Open Graph tags, sitemap
+- [ ] M4 – Go live: enable Pages and point sooalim.com DNS at GitHub (owner steps in `docs/DEPLOY.md`)

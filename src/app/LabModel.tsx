@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { pageTitle } from '../lib/titles';
 import SampleBanner from '../components/SampleBanner';
 import SteerRanges from '../components/SteerRanges';
 import Tabs from '../components/Tabs';
@@ -17,6 +19,11 @@ export default function LabModel() {
   const model = findModel(modelId);
   const [tab, setTab] = useQueryEnum('tab', TABS, 'overview');
   const [trait, setTrait] = useQueryEnum('trait', TRAITS, 'pushback');
+  useEffect(() => {
+    document.title = pageTitle(
+      model ? `${model.displayName} · Personality Index` : 'Model not found',
+    );
+  }, [model]);
 
   if (!model) {
     return (

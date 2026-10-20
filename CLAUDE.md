@@ -37,4 +37,6 @@ Run `npm run lint && npm test && npm run build` before every commit.
 ## Routing
 
 Client-side routing via React Router (`BrowserRouter`). The static host must serve `index.html` for
-unknown paths (SPA fallback); `vercel.json` does this on Vercel. Deploy steps: `docs/DEPLOY.md`.
+unknown paths: the Pages workflow copies `index.html` to `404.html`. The router's `basename` comes from
+Vite's `base` (`VITE_BASE`, set by the workflow), so always link with router `<Link>`/`navigate`, never
+hard-coded `/` URLs. Deploy steps: `docs/DEPLOY.md`.
