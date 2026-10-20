@@ -31,12 +31,20 @@ function RadarTooltip({ active, payload, view }: TooltipProps) {
 }
 
 /** One model's six traits on a 0–100 radar. Single series, so no legend: the card title names it. */
-export default function TraitRadar({ model, view }: { model: ModelResult; view: LabView }) {
+export default function TraitRadar({
+  model,
+  view,
+  height = 260,
+}: {
+  model: ModelResult;
+  view: LabView;
+  height?: number;
+}) {
   const rows = radarRows(model, view);
   const summary = rows.map((r) => `${TRAIT_LABELS[r.trait]} ${r.value}`).join(', ');
   return (
     <figure className="chart text-series-1" aria-label={`${model.displayName} ${view}: ${summary}`}>
-      <ResponsiveContainer width="100%" height={260}>
+      <ResponsiveContainer width="100%" height={height}>
         <RadarChart
           data={rows}
           outerRadius="70%"

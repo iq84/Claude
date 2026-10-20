@@ -20,4 +20,6 @@ Deployed on Vercel; see [`docs/DEPLOY.md`](./docs/DEPLOY.md) for setup and the G
 - [x] M1 – Eval runner (built and tested with the mock provider; first real run pending API keys and model IDs, see [`evals/README.md`](./evals/README.md))
 - [x] M2 – Personality Index UI (`/lab`, `/lab/:modelId`; showing labelled sample data until the first real run)
 - [x] M3 – Agent Builder (`/builder`: six-step wizard, recommendations from Lab data, `.md` + `.json` hiring packet)
+- [x] Playground (`/playground`): load an agent and chat with it or give it work, on any base model,
+      with your own API key (calls go straight from the browser to the provider)
 - [ ] M4 – Launch on sooalim.com

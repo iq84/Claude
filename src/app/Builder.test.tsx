@@ -96,11 +96,14 @@ describe('Agent Builder', () => {
     );
     expect(options).toHaveLength(3);
     expect(options[0]).toBeChecked();
+    await userEvent.click(options[1]!);
+
+    await userEvent.click(screen.getByRole('tab', { name: 'System prompt' }));
     expect(
       screen.getByText(/You are Invoice Reviewer, an AI agent on the Finance team/),
     ).toBeInTheDocument();
 
-    await userEvent.click(options[1]!);
+    await userEvent.click(screen.getByRole('tab', { name: 'Export' }));
     await userEvent.click(screen.getByRole('button', { name: 'Persona card (.md)' }));
     await userEvent.click(screen.getByRole('button', { name: 'Agent spec (.json)' }));
 

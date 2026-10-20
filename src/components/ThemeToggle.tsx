@@ -13,9 +13,10 @@ export default function ThemeToggle() {
         setTheme(next);
       }}
       aria-label={`Switch to ${next} mode`}
-      className="rounded-md border border-border px-2.5 py-1.5 text-sm text-muted hover:text-fg focus-visible:outline-2 focus-visible:outline-accent"
+      title={`Switch to ${next} mode`}
+      className="grid h-8 w-8 shrink-0 place-items-center rounded-md border border-border text-muted hover:text-fg focus-visible:outline-2 focus-visible:outline-accent"
     >
-      {theme === 'dark' ? 'Light' : 'Dark'}
+      <span aria-hidden="true">{theme === 'dark' ? '☀' : '☾'}</span>
     </button>
   );
 }

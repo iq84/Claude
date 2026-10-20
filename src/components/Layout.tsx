@@ -10,7 +10,7 @@ export default function Layout() {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="border-b border-border">
-        <div className="mx-auto flex max-w-5xl items-center justify-between gap-2 px-4 py-3">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-3">
           <NavLink to="/" className="font-bold tracking-tight">
             sooalim<span className="text-accent">.com</span>
           </NavLink>
@@ -25,19 +25,25 @@ export default function Layout() {
             <NavLink to="/builder" className={navClass}>
               Builder
             </NavLink>
-            <NavLink to="/about" className={navClass}>
+            <NavLink to="/playground" className={navClass}>
+              Playground
+            </NavLink>
+            <NavLink to="/about" className={(a) => `${navClass(a)} hidden sm:inline`}>
               About
             </NavLink>
             <ThemeToggle />
           </nav>
         </div>
       </header>
-      <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-10">
+      <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8">
         <Outlet />
       </main>
       <footer className="border-t border-border">
-        <div className="mx-auto max-w-5xl px-4 py-6 text-sm text-muted">
-          © {new Date().getFullYear()} Sooa Lim
+        <div className="mx-auto max-w-6xl px-4 py-6 text-sm text-muted">
+          © {new Date().getFullYear()} Sooa Lim ·{' '}
+          <NavLink to="/about" className="hover:text-fg hover:underline">
+            About
+          </NavLink>
         </div>
       </footer>
     </div>

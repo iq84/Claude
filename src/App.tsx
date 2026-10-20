@@ -9,6 +9,7 @@ import NotFound from './app/NotFound';
 const Lab = lazy(() => import('./app/Lab'));
 const LabModel = lazy(() => import('./app/LabModel'));
 const Builder = lazy(() => import('./app/Builder'));
+const Playground = lazy(() => import('./app/Playground'));
 
 const loading = <p className="text-muted">Loading…</p>;
 
@@ -38,6 +39,14 @@ export default function App() {
           element={
             <Suspense fallback={loading}>
               <Builder />
+            </Suspense>
+          }
+        />
+        <Route
+          path="playground"
+          element={
+            <Suspense fallback={loading}>
+              <Playground />
             </Suspense>
           }
         />

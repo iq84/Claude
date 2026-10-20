@@ -21,6 +21,9 @@ Run `npm run lint && npm test && npm run build` before every commit.
 - Until real eval results exist, `src/data/index.json` holds placeholder data that the UI must label
   clearly as sample data.
 - API keys live only in `.env` for the eval runner. Nothing under `src/` may read them.
+- Exception, by design: the Playground (`/playground`) takes the _visitor's own_ key, keeps it in
+  sessionStorage (localStorage only if they tick "remember") and sends it only to that provider from
+  the browser. Never ship a key of ours in the bundle, and keep provider SDKs lazy-loaded.
 - Wrap every `localStorage` access in try/catch; the site must work without storage.
 - Ask the owner before adding any dependency not listed in PRD §5.
 
