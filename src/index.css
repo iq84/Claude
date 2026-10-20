@@ -1,0 +1,47 @@
+@import 'tailwindcss';
+
+/* Dark mode follows the OS unless the user picks a theme (data-theme on <html>). */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+@theme {
+  --color-bg: #ffffff;
+  --color-surface: #f6f7fb;
+  --color-fg: #111827;
+  --color-muted: #4b5563;
+  --color-border: #e5e7eb;
+  --color-accent: #4338ca;
+  --color-accent-fg: #ffffff;
+}
+
+@layer base {
+  :root[data-theme='dark'] {
+    --color-bg: #0b0d14;
+    --color-surface: #151925;
+    --color-fg: #f3f4f6;
+    --color-muted: #a1a8b8;
+    --color-border: #262c3d;
+    --color-accent: #a5b4fc;
+    --color-accent-fg: #0b0d14;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) {
+      --color-bg: #0b0d14;
+      --color-surface: #151925;
+      --color-fg: #f3f4f6;
+      --color-muted: #a1a8b8;
+      --color-border: #262c3d;
+      --color-accent: #a5b4fc;
+      --color-accent-fg: #0b0d14;
+    }
+  }
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    font-family:
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      'Segoe UI',
+      sans-serif;
+  }
+}
